@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="pageTitle + ' | My ASP.NET Application'"></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body data-ng-app="myApp" data-ng-controller="root">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="logo-container">
+                <img class="logo" src="@Url.Content("~/Content/images/angular-go-sm.png")" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li data-ng-class="{active : activeViewPath==='/home'}"><a href='#/home'>Home</a></li>
+                    <li data-ng-class="{active : activeViewPath==='/example'}"><a href="#/example">Example</a></li>
+                    <li data-ng-class="{active : activeViewPath==='/about'}"><a href='#/about'>About</a></li>
+                    <li data-ng-class="{active : activeViewPath==='/contact'}"><a href='#/contact'>Contact</a></li>
+                </ul>
+                <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

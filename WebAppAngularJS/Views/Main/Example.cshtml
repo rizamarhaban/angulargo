@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Example"; // This is for SEO
+}
+
+<h2>Weather Info</h2>
+<div class="row">
+    <div class="well">
+        <label style="margin-right:10px;">City : </label>
+        <input style="margin-right:10px;" type="text" name="city" ng-model="city" />
+        <input type="button" class="btn" ng-click="getWeather()" value="Find" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="well">
+        <ul class="weather">
+            <li>Clouds: <span ng-bind="clouds"></span><img ng-src="{{weatherIcon}}" /></li>
+            <li>Temperature: <span ng-bind="celcius"></span></li>
+            <li>Humidity: <span ng-bind="humidity"></span></li>
+        </ul>
+    </div>
+</div>
